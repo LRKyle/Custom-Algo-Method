@@ -1,0 +1,16 @@
+while True:
+  avgRand = round(sum(checkList)/len(checkList))
+  guessAmount += 1
+  if avgRand == target:
+    print("It took ", guessAmount, " tries to get ", target)
+    break
+  
+  if avgRand > target:
+    for x in checkList:
+      if avgRand <= x: 
+        checkList.remove(x)
+
+  if avgRand < target:
+    for x in checkList:
+      if avgRand >= x: 
+        checkList.remove(x)

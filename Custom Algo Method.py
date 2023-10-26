@@ -2,21 +2,22 @@ import numpy as np
 import random as rand
 
 guessMax = rand.randint(0, 500)
-target = rand.randint(0, guessMax)
-guessAmount = 0
 checkList = []
 
-#Usually provided on LeetCode
+#Usually provided on LeetCode or other white boarding sites
 for x in range(guessMax): 
   checkList.append(x)
   np.random.shuffle(checkList)
 
+target = rand.choice(checkList)
+#print("Before: ", checkList)
+
+
 #Solution Code
 while True:
   guessRand = rand.choice(checkList)
-  guessAmount += 1
   if guessRand == target:
-    print("It took ", guessAmount, " tries to get ", target)
+    print(target)
     break
   
   if guessRand > target:
@@ -27,6 +28,4 @@ while True:
   if guessRand < target:
     for x in checkList:
       if guessRand >= x: 
-        checkList.remove(x)
-
-print(checkList)
+        checkList.remove(x) 
